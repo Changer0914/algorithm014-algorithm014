@@ -3,6 +3,8 @@
 // 给定 1->2->3->4  你应该返回 2->1->4->3.
 // 给定 1->2->3   你应该返回  2->1->3
 
+import base.ListNode;
+
 public class SwapNodesInPairs {
 
     // 没些出来，草稿
@@ -87,7 +89,7 @@ public class SwapNodesInPairs {
 
     public static void main(String[] args) {
         // 单链表的创建
-        ListNode head = new ListNode(1);
+        ListNode head = new ListNode(-1);
         ListNode node2 = new ListNode(2);
         ListNode node3 = new ListNode(3);
         ListNode node4 = new ListNode(4);
@@ -96,39 +98,15 @@ public class SwapNodesInPairs {
         node3.next = node4;
         // 单链表的遍历
         System.out.println("===循环遍历===");
-        loopPrint(head);
+        ListNode.loopPrint(head);
         System.out.println("===递归遍历===");
-        recursionPrint(head);
+        ListNode.recursionPrint(head);
 
         // 两两交换
         System.out.println("===两两交换===");
-        loopPrint(swapPairs3(head));
-
+        ListNode.loopPrint(swapPairs3(head));
 
         // 单链表的删除
-    }
-
-    public static void loopPrint(ListNode node) {
-        while (node != null) {
-            System.out.println(node.val);
-            node = node.next;
-        }
-    }
-
-    public static void recursionPrint(ListNode node) {
-        if (node == null) {
-            return;
-        }
-        System.out.println(node.val);
-        loopPrint(node.next);
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
     }
 
 }

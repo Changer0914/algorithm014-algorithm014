@@ -53,13 +53,13 @@
 
 
 | #       |   题目名   |   难度  |  思路关键字   |  已过遍数   |   目的  |  其他    |
-| --------   | -----:  | :----:  | -----:  | :----:  | -----:  | :----:  |
-| 283 |  [移动零](https://leetcode-cn.com/problems/move-zeroes/)  |   简单❤   |   数组、双指针、循环、快排  | 2 |  |       |
+| :-------   | :-----  | :-----  | :-----  | :-----  | :-----  | :-----  |
+| 283 |  [移动零](https://leetcode-cn.com/problems/move-zeroes/)  |   简单❤   |   数组、双指针、循环、快排  | 2 | 作业 |       |
 | 11 |  [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)  | 中等❤❤ |     |   |       |        |
 | 70 |  [爬楼梯](https://leetcode-cn.com/problems/climbing-stairs)  | 简单❤ |   动态规划、滚动数组、斐波那契数列、数学公式、边界  | 2 |       |   每一步都有2种选择：爬1级，或2级。如果爬1级，则剩下4级要爬。如果爬2级，则剩下3级要爬。 f(5) = f(3) + f(4)    |
 | 15 |  [三数之和](https://leetcode-cn.com/problems/3sum)  | 中等 |     |   |       |        |
-| 1 |  [两数之和](https://leetcode-cn.com/problems/two-sum)  | 简单 |     | 1 |       |        |
-| 66 |  [加一](https://leetcode-cn.com/problems/plus-one/)  | 简单 |     | 1 |       |        |
+| 1 |  [两数之和](https://leetcode-cn.com/problems/two-sum)  | 简单 |     | 1 | 作业 |        |
+| 66 |  [加一](https://leetcode-cn.com/problems/plus-one/)  | 简单 |     | 1 | 作业 |        |
 | 206 |  [反转链表](https://leetcode-cn.com/problems/reverse-linked-list)  | 简单 |     |   |        |        |
 | 24 |  [两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)  | 中等 |     | 1 |       |        |
 | 141 |  [环形链表](https://leetcode-cn.com/problems/linked-list-cycle)  | 简单 |     |   |        |        |
@@ -69,12 +69,12 @@
 | 155 |  [最小栈](https://leetcode-cn.com/problems/min-stack)  | 简单 |     |   |        |        |
 | 84 |  [柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram)  | 困难 |     |   |       |        |
 | 239 |  [滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum)  | 困难 |     |   |       |        |
-| 641 |  [设计循环双端队列](https://leetcode-cn.com/problems/design-circular-deque)  | 中等 |     |   |       |        |
-| 42 |  [接雨水](https://leetcode-cn.com/problems/trapping-rain-water)  | 困难 |     |   |        |        |
-| 26 |  [删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array)  | 简单 |     |   |        |        |
-| 189 |  [旋转数组](https://leetcode-cn.com/problems/rotate-array)  | 简单 |     |   |        |        |
-| 21 |  [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)  | 简单 |     |   |        |        |
-| 88 |  [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)  | 简单 |     |   |        |        |
+| 641 |  [设计循环双端队列](https://leetcode-cn.com/problems/design-circular-deque)  | 中等 |     |   | 作业 |        |
+| 42 |  [接雨水](https://leetcode-cn.com/problems/trapping-rain-water)  | 困难 |     |   | 作业 |        |
+| 26 |  [删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array)  | 简单 |     |   | 作业 |        |
+| 189 |  [旋转数组](https://leetcode-cn.com/problems/rotate-array)  | 简单 | 旋转 (i + k) % nums.length 、数组交换 | 1 | 作业 | 第一遍，做不出来，一种方法都想不到。 理解不了环状替换。 |
+| 21 |  [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)  | 简单 |     |   | 作业 |        |
+| 88 |  [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)  | 简单 |     |   | 作业 |        |
 
 
 ## 三、作业
