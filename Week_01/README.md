@@ -56,13 +56,13 @@
 | #       |   题目名   |   难度  |  思路关键字   |  已过遍数   |   目的  |  其他    |
 | :-------   | :-----  | :-----  | :-----  | :-----  | :-----  | :-----  |
 | 283 |  [移动零](https://leetcode-cn.com/problems/move-zeroes/)  |   简单❤   |   数组、双指针、循环、快排  | 2 | 作业 |       |
-| 11 |  [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)  | 中等❤❤ |     |   |       |        |
+| 11 |  [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)  | 中等❤❤ | 数组的嵌套循环、左右夹逼 | 2 |       | 第一遍：0814 直接看视频<br />第二遍：流利地默写出来 |
 | 70 |  [爬楼梯](https://leetcode-cn.com/problems/climbing-stairs)  | 简单❤ |   动态规划、滚动数组、斐波那契数列、数学公式、边界  | 2 | 每日一题 |   每一步都有2种选择：爬1级，或2级。如果爬1级，则剩下4级要爬。如果爬2级，则剩下3级要爬。 f(5) = f(3) + f(4)    |
 | 15 |  [三数之和](https://leetcode-cn.com/problems/3sum)  | 中等 |     |   |       |        |
 | 1 |  [两数之和](https://leetcode-cn.com/problems/two-sum)  | 简单 |     | 1 | 作业<br />每日一题 |        |
 | 66 |  [加一](https://leetcode-cn.com/problems/plus-one/)  | 简单 |     | 1 | 作业<br />每日一题 |        |
 | 206 |  [反转链表](https://leetcode-cn.com/problems/reverse-linked-list)  | 简单 |     |   |        |        |
-| 24 |  [两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)  | 中等 | 最小单元链节点交换写法、哨兵 | 1 | 每日一题 | 第一遍：看题解<br /> |
+| 24 |  [两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)  | 中等 | 递归、哨兵+迭代 | 1 | 每日一题 | 第一遍：08.13 看题解后，写了  递归解法和 迭代解法，递归解法看明白了，迭代解法憋了1个多小时去理解。<br />第二遍：08.14晚又写不出来了 |
 | 141 |  [环形链表](https://leetcode-cn.com/problems/linked-list-cycle)  | 简单 |     |   |        |        |
 | 142 |  [环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii)  | 中等 |     |   |       |        |
 | 25 |  [K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group)  | 困难 |     |   |        |        |
@@ -74,7 +74,7 @@
 | 42 |  [接雨水](https://leetcode-cn.com/problems/trapping-rain-water)  | 困难 |     |   | 作业 |        |
 | 26 |  [删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array)  | 简单 |     |   | 作业 |        |
 | 189 |  [旋转数组](https://leetcode-cn.com/problems/rotate-array)  | 简单 | 旋转 (i + k) % nums.length 、数组交换、旋转法、暴力法 | 2 | 作业 | 第一遍，做不出来，一种方法都想不到。 理解不了环状替换。  环装替换 思想理解了，但写不出来<br />第二遍，用了旋转法，快而简单。 |
-| 21 |  [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)  | 简单 |     |   | 作业<br />每日一题 |        |
+| 21 |  [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)  | 简单 | 递归、哨兵+迭代 |   | 作业<br />每日一题 | 第一遍，看答案，理解后，马上用递归写出来了，感谢那张图，花的太好了。 |
 | 88 |  [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)  | 简单 |     |   | 作业 |        |
 
 
@@ -86,7 +86,35 @@
 
 3、分析 Queue 和 Priority Queue 的源码
 
+4、做第一周总结
 
+1）打算把递归的想法写上。递归的思维误区。
+
+2）算法很有意思，旋转数组的环状替换解法很有意思，还有旋转法。  环状替换理解了，但写不出来，看答案看不懂。 
+
+3）一些代码基础单元：数组的交换、链表的交换
+
+4）【视频心得】 实战题目解析：盛水最多的容器、爬楼梯
+
+以为就单纯地讲两道算法题，没想到非常精彩，有很多解题的精彩思想，让人拍案叫绝。
+
+最懵逼的时候，怎么办？
+
+​	》用暴力法。
+
+​    》最简单的问题，泛化，找最近重复子问题
+
+程序就是一堆  if else  for  while  recursion 。计算机擅长做重复的事情。
+
+所有算法的解决思路：找重复性。
+
+最大的误区：题只做一遍，不会还死磕。  
+
+优化的思想：用空间换时间，升维法
+
+熟练使用数组的循环嵌套。
+
+记住左右夹逼思想，用的比较多。
 
 
 ​        
