@@ -78,7 +78,7 @@
 | 142 |  [环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii)  | 中等 |     |   |       |        |
 | 25 |  [K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group)  | 困难 |     |   |        |        |
 | 20 |  [有效的括号](https://leetcode-cn.com/problems/valid-parentheses)  | 简单 | 栈 | 1 | 超哥解析 | 第一遍：2020.08.16 ，直接看解析，看过之后，自己默写第一遍，OK，解法1：使用map存数据字典，提交后，用时较长。<br />解法2：看国际版的，找到一个最少代码，学习后，自己默写一遍，提交后，用时超过90%<br /> |
-| 155 |  [最小栈](https://leetcode-cn.com/problems/min-stack)  | 简单 |     | 1 | 超哥解析 | 第一遍：08.16，以为是用数组实现栈。直接看解析，解法1：两个栈stack   1, -1, 0, 3, 2, 5<br />min_stack    1, -1 |
+| 155 |  [最小栈](https://leetcode-cn.com/problems/min-stack)  | 简单 | 数据栈+辅助栈、 | 1 | 超哥解析 | 第一遍：08.16，以为是用数组实现栈。直接看解析，解法1：两个栈stack   1, -1, 0, 3, 2, 5<br />min_stack    1, -1 |
 | 84 |  [柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram)  | 困难 |     |   |       |        |
 | 239 |  [滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum)  | 困难 |     |   |       |        |
 | 641 |  [设计循环双端队列](https://leetcode-cn.com/problems/design-circular-deque)  | 中等 |     |   | 作业<br />每日一题 |        |
@@ -142,3 +142,4 @@
 
 指针i和指针j的各种移动方式：向中间、向两边、固定一个移动另一个，还有移动速度，这样的代码，要写的熟练。
 
+7）第一周，题挺多的，很多题没有刷第二遍，现在心里不踏实。如果周六不加班，还能刷至少5道题。
