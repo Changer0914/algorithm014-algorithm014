@@ -40,6 +40,17 @@ public class ListNode {
     }
 
     // 添加
+    public void addFirst(){
+    }
+
+    public void addLast(){
+
+    }
+
+    public void add(ListNode l1, ListNode head){
+        int value = head.val;
+
+    }
 
     // 删除
 
