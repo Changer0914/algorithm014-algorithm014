@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-学习笔记
-=======
 周日  早9:00 - 9:45
-
-
 入学考试：https://time.geekbang.org/quiz/intro?act_id=198&exam_id=527
 
 
@@ -61,6 +56,14 @@
 
 
 
+理解动态规划
+
+
+如何写递归？  f(x) = 1 + f(x-1)
+https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/yi-kan-jiu-hui-yi-xie-jiu-fei-xiang-jie-di-gui-by-/
+https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/hua-jie-suan-fa-24-liang-liang-jiao-huan-lian-biao/
+1）终止条件
+2）调用单元
 
 
 
@@ -80,15 +83,15 @@
 | 141 |  [环形链表](https://leetcode-cn.com/problems/linked-list-cycle)  | 简单 |     |   | 超哥解析 |        |
 | 142 |  [环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii)  | 中等 |     |   |       |        |
 | 25 |  [K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group)  | 困难 |     |   |        |        |
-| 20 |  [有效的括号](https://leetcode-cn.com/problems/valid-parentheses)  | 简单 |     |   |        |        |
-| 155 |  [最小栈](https://leetcode-cn.com/problems/min-stack)  | 简单 |     |   |        |        |
+| 20 |  [有效的括号](https://leetcode-cn.com/problems/valid-parentheses)  | 简单 | 栈 | 1 | 超哥解析 | 第一遍：2020.08.16 ，直接看解析，看过之后，自己默写第一遍，OK，解法1：使用map存数据字典，提交后，用时较长。<br />解法2：看国际版的，找到一个最少代码，学习后，自己默写一遍，提交后，用时超过90%<br /> |
+| 155 |  [最小栈](https://leetcode-cn.com/problems/min-stack)  | 简单 | 数据栈+辅助栈、 | 1 | 超哥解析 | 第一遍：08.16，以为是用数组实现栈。直接看解析，解法1：两个栈stack   1, -1, 0, 3, 2, 5<br />min_stack    1, -1 |
 | 84 |  [柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram)  | 困难 |     |   |       |        |
 | 239 |  [滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum)  | 困难 |     |   |       |        |
 | 641 |  [设计循环双端队列](https://leetcode-cn.com/problems/design-circular-deque)  | 中等 |     |   | 作业<br />每日一题 |        |
 | 42 |  [接雨水](https://leetcode-cn.com/problems/trapping-rain-water)  | 困难 |     |   | 作业 |        |
 | 26 |  [删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array)  | 简单 |     |   | 作业 |        |
 | 189 |  [旋转数组](https://leetcode-cn.com/problems/rotate-array)  | 简单 | 旋转 (i + k) % nums.length 、数组交换、旋转法、暴力法 | 2 | 作业 | 第一遍，做不出来，一种方法都想不到。 理解不了环状替换。  环装替换 思想理解了，但写不出来<br />第二遍，用了旋转法，快而简单。 |
-| 21 |  [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)  | 简单 | 递归、哨兵+迭代 |   | 作业<br />每日一题 | 第一遍，看答案，理解后，马上用递归写出来了，感谢那张图，花的太好了。 |
+| 21 |  [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)  | 简单 | 递归、哨兵+迭代 | 1 | 作业<br />每日一题 | 第一遍，看答案，理解后，马上用递归写出来了，感谢那张图，花的太好了。 |
 | 88 |  [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)  | 简单 |     |   | 作业 |        |
 | 299 | [猜数字游戏](https://leetcode-cn.com/problems/bulls-and-cows/) | 简单 | | | 每日一题 | 第一遍，自己试着写，花了1个多小时，写的不对，到23.20了，直接将答案复制过去，提交了。<br />浪费时间了，不该死磕的。 桶解法没看懂，用两个数组记录出现的次数，然后取最小值，这种方法计算母牛次数，看懂了。 |
 
@@ -145,4 +148,10 @@
 
 指针i和指针j的各种移动方式：向中间、向两边、固定一个移动另一个，还有移动速度，这样的代码，要写的熟练。
 
->>>>>>> 4bf099a8a1241a27ac6ba17516680bb7273b5441
+7）反思总结：
+第一周，题挺多的，很多题没有刷第二遍，现在心里不踏实。如果周六不加班，还能刷至少5道题。
+模拟考试，忘记在9点进行了，改期到下周日08.23
+按照五毒神掌，下周每天要做4道题：至少1个新题，至少2个旧题。
+这个哥们，完成的不错，多看看他的，激励自己做得更好。
+https://github.com/yzsever/algorithm014-algorithm014/tree/master/Week_01
+12期的作业   https://github.com/algorithm012/algorithm012/issues

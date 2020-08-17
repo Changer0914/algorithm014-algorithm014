@@ -72,7 +72,7 @@ https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/hua-jie-suan-fa-24
 
 | #       |   题目名   |   难度  |  思路关键字   |  已过遍数   |   目的  |  其他    |
 | :-------   | :-----  | :-----  | :-----  | :-----  | :-----  | :-----  |
-| 283 |  [移动零](https://leetcode-cn.com/problems/move-zeroes/)  |   简单❤   |   数组、双指针、循环、快排  | 2 | 作业 |       |
+| 283 |  [移动零](https://leetcode-cn.com/problems/move-zeroes/)  |   简单❤   |   双指针、循环、快排  | 2 | 作业 |       |
 | 11 |  [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)  | 中等❤❤ | 数组的嵌套循环、左右夹逼 | 2 |       | 第一遍：0814 直接看视频<br />第二遍：流利地默写出来 |
 | 70 |  [爬楼梯](https://leetcode-cn.com/problems/climbing-stairs)  | 简单❤ |   动态规划、滚动数组、斐波那契数列、数学公式、边界  | 2 | 每日一题 |   每一步都有2种选择：爬1级，或2级。如果爬1级，则剩下4级要爬。如果爬2级，则剩下3级要爬。 f(5) = f(3) + f(4)    |
 | 15 |  [三数之和](https://leetcode-cn.com/problems/3sum)  | 中等 | 排序+双指针左右夹逼 |   | 每日一题、超哥解析 | 第一遍：暴力解法，提交超时，看题解<br />采用空间换时间，hash+两遍循环，依然提交不了。<br />看题解后采用排序+左右夹逼后，提交通过。<br />这个写法很巧妙  while (i < j && nums[i] == nums[++i]); |
@@ -94,6 +94,9 @@ https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/hua-jie-suan-fa-24
 | 21 |  [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)  | 简单 | 递归、哨兵+迭代 | 1 | 作业<br />每日一题 | 第一遍，看答案，理解后，马上用递归写出来了，感谢那张图，花的太好了。 |
 | 88 |  [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)  | 简单 |     |   | 作业 |        |
 | 299 | [猜数字游戏](https://leetcode-cn.com/problems/bulls-and-cows/) | 简单 | | | 每日一题 | 第一遍，自己试着写，花了1个多小时，写的不对，到23.20了，直接将答案复制过去，提交了。<br />浪费时间了，不该死磕的。 桶解法没看懂，用两个数组记录出现的次数，然后取最小值，这种方法计算母牛次数，看懂了。 |
+
+这样记录的话，第二周怎么记录呢？
+
 
 
 ## 三、作业
