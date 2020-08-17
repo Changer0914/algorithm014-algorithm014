@@ -1,7 +1,9 @@
 # 极客大学「算法训练营-第14期」作业提交仓库
 
 
+## 9期同学的作业，学习下
 
+https://github.com/algorithm009-class01/algorithm009-class01/issues
 
 ## 仓库目录结构说明
 
