@@ -1,1 +1,157 @@
-学习笔记
+## 一、实战
+
+如果第一周每天做1道题，按照五毒神掌，从第二周开始，每天至少3道题。（第八天3道：第一天的1道，第七天的1道，第八天的1道）
+
+如果第一周每天做2道题，按照五毒神掌，从第二周开始，每天至少6道题。
+
+如果第一周每天做3道题，按照五毒神掌，从第二周开始，每天至少9道题。
+
+| 题目                                                         | 难度 | 关键字                                                       | 想法                                                         | 第一 | 第二 | 第三 | 四   | 五   | 六   | 七   |
+| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/) | 简单 | 排序双指针<br />哈希计数                                     |                                                              | 0817 |      |      |      |      |      |      |
+| [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/) | 简单 | 解法一：双指针i和j，指针j记录非零个数<br />解法二：双指针i和j，数据交换，说是快排思想，没理解。无论是否是0，指针i都移动；非0，指针j才移动 | 第三遍还是有点吃力，一遍for循环的解法写不出来。<br /><br />解法二，如果没有非0元素，存在原地交换，如何解决呢？<br /><br /><br />指针的移动形式：从两边往中间，从中间往两边。<br />指针的移动速度：每个指针的移动步数不一样 |      |      | 0817 |      |      |      |      |
+| [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/) | 中等 | 双指针左右夹逼：一个不动，一个移动                           | 可以顺利写出来                                               |      |      | 0817 |      |      |      |      |
+| [15. 三数之和](https://leetcode-cn.com/problems/3sum/)       | 中等 |                                                              |                                                              | 0816 | 0816 | 0817 |      |      |      |      |
+| [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses/) | 简单 |                                                              | 第一遍，其实是08.19凌晨做的。                                | 0818 |      |      |      |      |      |      |
+
+
+
+## 二、精选代码
+
+> 优秀代码三问法：
+> 1、你学到了什么？
+> 2、时间复杂度
+> 3、空间复杂度
+
+[350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)
+
+```java
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        if (nums1.length == 0)
+            return nums1;
+        if (nums2.length == 0)
+            return nums2;
+        // 排序
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int i = 0, j = 0, k = 0;
+        while (i < nums1.length && j < nums2.length) {
+            if (nums1[i] < nums2[j])
+                i++;
+            else if (nums2[j] < nums1[i])
+                j++;
+            else if(nums1[i] == nums2[j]) {
+                nums1[k++] = nums1[i];
+                i++;            
+                j++;
+            }
+        }
+        return Arrays.copyOfRange(nums1, 0, k);
+    }
+}
+```
+
+[11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
+
+```java
+// 时间 o(n) 空间 o(1)
+// 双指针左右夹逼，i向右，j向左。如果height[i]小于height[j]，i向右移动，j不变
+class Solution {
+    public int maxArea(int[] height) {
+        int area = 0;
+        for (int i = 0, j = height.length - 1; i < j;) {
+            int w = j - i;
+            int h = height[i] < height[j] ? height[i++] : height[j--];
+            area = Math.max(area, w * h);
+        }
+        return area;
+    }
+}
+```
+
+[15. 三数之和](https://leetcode-cn.com/problems/3sum/)
+
+```java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        if (nums == null || nums.length < 3) {
+            return Collections.emptyList();
+        }
+        // 使用左右夹逼时，先对数组进行排序
+        Arrays.sort(nums);
+        List<List<Integer>> list = new ArrayList<>();
+        // 遍历  指针i循环， 指针j和k左右夹逼
+        for (int i = 0; i < nums.length - 2; i++) {
+            // nums[i] + nums[j] + nums[k] = 0
+            // 升序后，如果 nums[i] 大于 0 ，直接结束 。 因为  nums[i] <= nums[j] <= nums[k]
+            if (nums[i] > 0) break;
+            // 如果 nums[i] 与 前一个数 相等，直接 跳过
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            int j = i + 1, k = nums.length - 1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if (sum > 0) {
+                    // j不变， k向左移
+                    k--;
+                    // 优化，跳过重复的
+                    while (j < k && nums[k] == nums[k + 1]) {
+                        k--;
+                    }
+                    // while (j < k && nums[k] == nums[--k]);  // 跳过重复的，很巧妙的写法
+                } else if (sum < 0) {
+                    // j向右移， k不变
+                    j++;
+                    while (j < k && nums[j] == nums[j - 1]) {
+                        j++;
+                    }
+                    // while (j < k && nums[j] == nums[++j]);
+                } else {
+                    // 符合条件
+                    // j 向右  k 向左
+                    list.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    // 跳过重复的元素
+                    while (j < k && nums[j] == nums[++j]);
+                    while (j < k && nums[k] == nums[--k]);
+                }
+            }
+        }
+        return list;
+    }
+}
+
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] num) {
+        Arrays.sort(num);
+        List<List<Integer>> res = new LinkedList<>(); 
+        for (int i = 0; i < num.length-2; i++) {
+            if (i == 0 || (i > 0 && num[i] != num[i-1])) {
+                int lo = i+1, hi = num.length-1, sum = 0 - num[i];
+                while (lo < hi) {
+                    if (num[lo] + num[hi] == sum) {
+                        res.add(Arrays.asList(num[i], num[lo], num[hi]));
+                        while (lo < hi && num[lo] == num[lo+1]) lo++;
+                        while (lo < hi && num[hi] == num[hi-1]) hi--;
+                        lo++; hi--;
+                    } else if (num[lo] + num[hi] < sum) lo++;
+                    else hi--;
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
+
+
+
+
+
+
+## 三、作业
+
+### 1、写一个关于 HashMap 的小总结。
+
+### 2、HeapSort ：自学 https://www.geeksforgeeks.org/heap-sort/
