@@ -12,7 +12,7 @@
 | [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/) | 简单 | 解法一：双指针i和j，指针j记录非零个数<br />解法二：双指针i和j，数据交换，说是快排思想，没理解。无论是否是0，指针i都移动；非0，指针j才移动 | 第三遍还是有点吃力，一遍for循环的解法写不出来。<br /><br />解法二，如果没有非0元素，存在原地交换，如何解决呢？<br /><br /><br />指针的移动形式：从两边往中间，从中间往两边。<br />指针的移动速度：每个指针的移动步数不一样 |      |      | 0817 |      |      |      |      |
 | [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/) | 中等 | 双指针左右夹逼：一个不动，一个移动                           | 可以顺利写出来                                               |      |      | 0817 |      |      |      |      |
 | [15. 三数之和](https://leetcode-cn.com/problems/3sum/)       | 中等 |                                                              |                                                              | 0816 | 0816 | 0817 |      |      |      |      |
-| [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses/) | 简单 |                                                              | 第一遍，其实是08.19凌晨做的。                                | 0818 |      |      |      |      |      |      |
+| [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses/) | 简单 |                                                              | 第一遍，其实是08.19凌晨做的。终于做对了一道，思路是正确的，不过代码行数过多。<br />第二遍，直接看题解 | 0818 | 0818 |      |      |      |      |      |
 
 
 
@@ -144,9 +144,24 @@ class Solution {
 }
 ```
 
+[1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses/)
 
-
-
+```java
+class Solution {
+    public String removeOuterParentheses(String str) {
+        StringBuilder sb = new StringBuilder();
+        int level = 0;
+        for (char c : str.toCharArray()) {
+            // 好巧妙的重复单元，这三个顺序不能颠倒
+            if (c == ')') --level;
+            // 第一个不放进去，最后一个也不放进去
+            if (level >= 1) sb.append(c);
+            if (c == '(') ++level;
+        }
+        return sb.toString();
+    }
+}
+```
 
 
 
