@@ -6,13 +6,25 @@
 
 如果第一周每天做3道题，按照五毒神掌，从第二周开始，每天至少9道题。
 
-| 题目                                                         | 难度 | 关键字                                                       | 想法                                                         | 第一 | 第二 | 第三 | 四   | 五   | 六   | 七   |
-| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/) | 简单 | 排序双指针<br />哈希计数                                     |                                                              | 0817 |      |      |      |      |      |      |
-| [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/) | 简单 | 解法一：双指针i和j，指针j记录非零个数<br />解法二：双指针i和j，数据交换，说是快排思想，没理解。无论是否是0，指针i都移动；非0，指针j才移动 | 第三遍还是有点吃力，一遍for循环的解法写不出来。<br /><br />解法二，如果没有非0元素，存在原地交换，如何解决呢？<br /><br /><br />指针的移动形式：从两边往中间，从中间往两边。<br />指针的移动速度：每个指针的移动步数不一样 |      |      | 0817 |      |      |      |      |
-| [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/) | 中等 | 双指针左右夹逼：一个不动，一个移动                           | 可以顺利写出来                                               |      |      | 0817 |      |      |      |      |
-| [15. 三数之和](https://leetcode-cn.com/problems/3sum/)       | 中等 |                                                              |                                                              | 0816 | 0816 | 0817 |      |      |      |      |
-| [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses/) | 简单 |                                                              | 第一遍，其实是08.19凌晨做的。终于做对了一道，思路是正确的，不过代码行数过多。<br />第二遍，直接看题解 | 0818 | 0818 |      |      |      |      |      |
+| 题目                                                         | 难度           | 关键字                                                       | 想法                                                         | 第一 | 第二 | 第三 | 四   | 五   | 六   | 七   |
+| ------------------------------------------------------------ | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/) | 简单           | 排序双指针<br />哈希计数                                     |                                                              | 0817 |      |      |      |      |      |      |
+| [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/) | 简单           | 解法一：双指针i和j，指针j记录非零个数<br />解法二：双指针i和j，数据交换，说是快排思想，没理解。无论是否是0，指针i都移动；非0，指针j才移动 | 第三遍还是有点吃力，一遍for循环的解法写不出来。<br /><br />解法二，如果没有非0元素，存在原地交换，如何解决呢？<br /><br /><br />指针的移动形式：从两边往中间，从中间往两边。<br />指针的移动速度：每个指针的移动步数不一样 |      |      | 0817 |      |      |      |      |
+| [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/) | 中等           | 双指针左右夹逼：一个不动，一个移动                           | 可以顺利写出来                                               |      |      | 0817 |      |      |      |      |
+| [15. 三数之和](https://leetcode-cn.com/problems/3sum/)       | 中等           |                                                              |                                                              | 0816 | 0816 | 0817 |      |      |      |      |
+| [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses/) | 简单           |                                                              | 第一遍，其实是08.19凌晨做的。终于做对了一道，思路是正确的，不过代码行数过多。<br />第二遍，直接看题解 | 0818 | 0818 |      |      |      |      |      |
+| [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)<br /><br />[239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 简单<br />困难 | 解法2：优化暴力解法<br />解法3：单向的双端队列               | 第一遍：使用暴力法，超过20%<br />然后看了两个解法，没去敲第二遍。<br />反思下，这道题弄了快2个小时了，晚上效率太低，还有点困。<br />早起做，在公司休息的时候做。 | 0819 |      |      |      |      |      |      |
+| [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [剑指 Offer 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [347. 前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/) | 简单           | 递归、迭代                                                   |                                                              | 0820 |      |      |      |      |      |      |
+| [589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/) | 简单           | 递归、迭代                                                   |                                                              | 0820 |      |      |      |      |      |      |
+| [429. N叉树的层序遍历](https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [剑指 Offer 40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/) | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
 
 
 
@@ -170,3 +182,11 @@ class Solution {
 ### 1、写一个关于 HashMap 的小总结。
 
 ### 2、HeapSort ：自学 https://www.geeksforgeeks.org/heap-sort/
+
+### 3、自己画一下有向有权图
+
+### 4、递归如何转为迭代
+
+### 5、做上周未完成的
+
+总结栈、队列的Java API
