@@ -13,18 +13,19 @@
 | [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/) | 中等           | 双指针左右夹逼：一个不动，一个移动                           | 可以顺利写出来                                               |      |      | 0817 |      |      |      |      |
 | [15. 三数之和](https://leetcode-cn.com/problems/3sum/)       | 中等           |                                                              |                                                              | 0816 | 0816 | 0817 |      |      |      |      |
 | [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses/) | 简单           |                                                              | 第一遍，其实是08.19凌晨做的。终于做对了一道，思路是正确的，不过代码行数过多。<br />第二遍，直接看题解 | 0818 | 0818 |      |      |      |      |      |
-| [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)<br /><br />[239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 简单<br />困难 | 解法2：优化暴力解法<br />解法3：单向的双端队列               | 第一遍：使用暴力法，超过20%<br />然后看了两个解法，没去敲第二遍。<br />反思下，这道题弄了快2个小时了，晚上效率太低，还有点困。<br />早起做，在公司休息的时候做。 | 0819 |      |      |      |      |      |      |
+| [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)<br /><br />[239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 简单<br />困难 | 解法2：优化暴力解法<br />解法3：单向的双端队列               | 第一遍：使用暴力法，超过20%<br />然后看了两个解法，没去敲第二遍。<br />反思下，这道题弄了快2个小时了，晚上效率太低，还有点困。<br />早起做，在公司休息的时候做。<br />其实，对于题解看不懂的，或抄或记。 | 0819 |      |      |      |      |      |      |
 | [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [剑指 Offer 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [347. 前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
-| [590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/) | 简单           | 递归、迭代                                                   |                                                              | 0820 |      |      |      |      |      |      |
-| [589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/) | 简单           | 递归、迭代                                                   |                                                              | 0820 |      |      |      |      |      |      |
+| [590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/) | 简单           | 递归、迭代                                                   | 先序遍历：根左右<br />后序遍历：左右根 （先序遍历的变形：根右左，再翻转下，就是后序遍历） | 0820 | 0821 |      |      |      |      |      |
+| [589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/) | 简单           | 递归、栈+迭代                                                | 第一遍：递归<br />第二遍：栈+迭代                            | 0820 | 0820 | 0821 |      |      |      |      |
 | [429. N叉树的层序遍历](https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [剑指 Offer 40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/) | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [258. 各位相加](https://leetcode-cn.com/problems/add-digits/) | 简单           | 递归法、迭代法、数学法                                       | 第一遍：太困了，没写出来                                     | 0821 |      |      |      |      |      |      |
 
 
 
@@ -175,6 +176,55 @@ class Solution {
 }
 ```
 
+[589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/)
+
+```java
+class Solution {
+	
+    // 解法一：递归
+    public List<Integer> preorder(Node root) {
+        List<Integer> list = new ArrayList<>();
+        preDfs(root, list);
+        return list;
+    }
+	
+    private void preDfs(Node root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        list.add(root.val);
+        for (Node children : root.children) {
+            preDfs(children, list);
+        }
+    }
+    
+    // 解法二：栈 + 遍历
+    public List<Integer> preorder(Node root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Stack<Node> stack = new Stack<>();
+        // 初始化
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            // 重复单元：出栈、往list添加值、入栈
+            Node pop = stack.pop();
+            list.add(pop.val);
+            // 从右往左将孩子节点入栈
+            List<Node> childrenList = pop.children;
+            for (int i = childrenList.size() - 1; i >= 0; i--) {
+                stack.push(childrenList.get(i));
+            }
+            // Collections.reverse(childrenList);
+            // childrenList.forEach(child -> stack.push(child));
+        }
+        return list;
+    }
+    
+}
+```
+
 
 
 ## 三、作业
@@ -190,3 +240,18 @@ class Solution {
 ### 5、做上周未完成的
 
 总结栈、队列的Java API
+
+
+
+## 四、总结反思
+
+反思：
+	追求一遍理解，理解不了，也不去抄，不去记。
+	遍数不够，1道题花了太长时间。
+	晚上练习，效率不太高，这周经常0点睡。
+	有点怕，因为自己1道题花了太长时间，如果1天6道的话，那时间更长了。
+改进：
+	不追求一遍理解，第一遍理解不了，那就多遍，总会理解的。
+	早起练习、闲暇时间练习、晚上在公司练习、睡前练习。
+	思考5分钟，没想法，直接看题解，或抄，或背。
+
