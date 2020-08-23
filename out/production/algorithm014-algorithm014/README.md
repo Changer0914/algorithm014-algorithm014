@@ -1,3 +1,11 @@
+\#学号：G20200388020139
+\#姓名：陈大帅
+\#班级：14期1班1组
+\#语言：Java
+\#作业&总结链接：https://github.com/Changer0914/algorithm014-algorithm014/tree/master/Week_02
+
+
+
 ## 一、实战
 
 如果第一周每天做1道题，按照五毒神掌，从第二周开始，每天至少3道题。（第八天3道：第一天的1道，第七天的1道，第八天的1道）
@@ -16,7 +24,7 @@
 | [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)<br /><br />[239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 简单<br />困难 | 解法2：优化暴力解法<br />解法3：单向的双端队列               | 第一遍：使用暴力法，超过20%<br />然后看了两个解法，没去敲第二遍。<br />反思下，这道题弄了快2个小时了，晚上效率太低，还有点困。<br />早起做，在公司休息的时候做。<br />其实，对于题解看不懂的，或抄或记。 | 0819 |      |      |      |      |      |      |
 | [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
-| [剑指 Offer 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [剑指 Offer 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/) | 中等           |                                                              | 第一遍：没看懂，默写下来<br />第二遍：写下来，继续理解。维护三个指针a、b、c，第i个丑数dp[i]一定是dp[a]×*2、dp[b]*×3、dp[c]×5中最小的那个，如果选中其中一个，那个指针进行加一操作。 | 0823 | 0823 |      |      |      |      |      |
 | [347. 前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/) | 简单           | 递归、栈+迭代（前序的变形+翻转）                             | 先序遍历：根左右<br />后序遍历：左右根 （先序遍历的变形：根右左，再翻转下，就是后序遍历） | 0820 | 0821 |      |      |      |      |      |
 | [589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/) | 简单           | 递归、栈+迭代                                                | 第一遍：递归<br />第二遍：栈+迭代                            | 0820 | 0820 | 0821 |      |      |      |      |
@@ -350,13 +358,19 @@ class Solution {
 
 面试时，经常考察HashMap，现在认真地学习下。
 
+参考文章：https://tech.meituan.com/2016/06/24/java-hashmap.html
+
 #### 1.1 存储结构 - 字段 1.8
 
 数组 + 链表 + 红黑树（1.8引入红黑树），链表长度大于8时会转换成红黑树。
 
 ![image-20200823164137524](C:\Users\shuai\AppData\Roaming\Typora\typora-user-images\image-20200823164137524.png)
 
-
+\#学号：G20200388020139
+\#姓名：陈大帅
+\#班级：14期1班1组
+\#语言：Java
+\#作业&总结链接：https://github.com/Changer0914/algorithm014-algorithm014/tree/master/Week_02
 
 ```java
 // 哈希桶数组，table.length  区分 size
@@ -384,11 +398,19 @@ static final int MIN_TREEIFY_CAPACITY = 64;
 transient int size;
 // 用来记录HashMap内部结构发生变化的次数，主要用于迭代的快速失败。强调一点，内部结构发生变化指的是结构发生变化，例如put新键值对，但是某个key对应的value值被覆盖不属于结构变化。
 transient int modCount;
+// HashMap所能容纳的Node个数（K-V个数） threshold = length * Load factor，也就是说，在数组定义好长度之后，负载因子越大，所能容纳的键值对个数越多。
 int threshold;
 final float loadFactor;
-```
 
-首先，Node[] table的初始化长度length(默认值是16)，Load factor为负载因子(默认值是0.75)，threshold是HashMap所能容纳的最大数据量的Node(键值对)个数。threshold = length * Load factor。也就是说，在数组定义好长度之后，负载因子越大，所能容纳的键值对个数越多。
+// 红黑树Node
+static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
+        TreeNode<K,V> parent;  // red-black tree links
+        TreeNode<K,V> left;
+        TreeNode<K,V> right;
+        TreeNode<K,V> prev;    // needed to unlink next upon deletion
+        boolean red;
+}
+```
 
 结合负载因子的定义公式可知，threshold就是在此Load factor和length(数组长度)对应下允许的最大元素数目，超过这个数目就重新resize(扩容)，扩容后的HashMap容量是之前容量的两倍。默认的负载因子0.75是对空间和时间效率的一个平衡选择，建议大家不要修改，除非在时间和空间比较特殊的情况下，如果内存空间很多而又对时间效率要求很高，可以降低负载因子Load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1。
 
@@ -399,15 +421,42 @@ final float loadFactor;
 
 #### 1.2 确定哈希桶数组索引位置 1.8
 
-// 哈希算法 
+取 get(Object key) 就不分析了。
+
+```java
+// 1.8 哈希算法 
 static final int hash(Object key) {
         int h;
+    	// h = key.hashCode()
+        // h >>> 16   右移16位
+        // h ^ (h >>> 16)   
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
 }
+
+// 对比1.7  哈希算法
+static int hash(int h) {
+        h ^= (h >>> 20) ^ (h >>> 12);
+        return h ^ (h >>> 7) ^ (h >>> 4);
+}
+
+
+// 1.7和1.8 计算数组的索引位置  
+// int hash = hash(key.hashCode());
+// table[indexFor(hash, table.length)]; 
+// 这段巧妙：我们一般想到的是模运算，这里采用了与运算。  与运算比模运算具有更高的效率。
+static int indexFor(int h, int length) {
+    	// 与运算。“与”操作的结果就是散列值的高位全部归零，只保留低位值，用来做数组下标访问。
+        return h & (length-1);
+}    
+```
+
+![image-20200823180212795](C:\Users\shuai\AppData\Roaming\Typora\typora-user-images\image-20200823180212795.png)
 
 
 
 #### 1.3 存 put(K key, V value) 1.8
+
+![image-20200823184615606](C:\Users\shuai\AppData\Roaming\Typora\typora-user-images\image-20200823184615606.png)
 
 ```java
    /**
@@ -422,25 +471,34 @@ static final int hash(Object key) {
      */
 final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
     Node<K,V>[] tab; Node<K,V> p; int n, i;
+    // 步骤①：tab为空则创建
     if ((tab = table) == null || (n = tab.length) == 0)
+        // 扩容
         n = (tab = resize()).length;
+    // 步骤②：计算出位置tab[index]之后，看当前位置有没有元素，没有的话，创建节点，添加进去
     if ((p = tab[i = (n - 1) & hash]) == null)
         tab[i] = newNode(hash, key, value, null);
     else {
+        // 当前位置已经有元素了，看是替换，还是新添加在链表上，还是添加到红黑树上。
         Node<K,V> e; K k;
+        // 步骤③：节点key存在，直接覆盖value
         if (p.hash == hash &&
             ((k = p.key) == key || (key != null && key.equals(k))))
             e = p;
+        // 步骤④：判断该链为红黑树
         else if (p instanceof TreeNode)
             e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
         else {
+            // 步骤⑤：该链为链表
             for (int binCount = 0; ; ++binCount) {
                 if ((e = p.next) == null) {
                     p.next = newNode(hash, key, value, null);
-                    if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                    // 链表长度大于8转换为红黑树进行处理
+                    if (binCount >= TREEIFY_THRESHOLD - 1)
                         treeifyBin(tab, hash);
                     break;
                 }
+                // key已经存在直接覆盖value
                 if (e.hash == hash &&
                     ((k = e.key) == key || (key != null && key.equals(k))))
                     break;
@@ -456,6 +514,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
         }
     }
     ++modCount;
+    // 步骤⑥：超过最大容量 就扩容
     if (++size > threshold)
         resize();
     afterNodeInsertion(evict);
@@ -463,19 +522,13 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 }
 ```
 
-#### 1.4 取 get(Object key) 1.8
+#### 1.4 扩容 1.8
 
-
-
-
+待续。。。
 
 ### 2、HeapSort ：自学 https://www.geeksforgeeks.org/heap-sort/
 
 ### 3、自己画一下有向有权图
-
-### 4、做上周未完成的
-
-总结栈、队列的Java API
 
 
 
@@ -498,6 +551,4 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 1）确定递归方法的参数和返回值
 2）确定终止条件
 3）确定单层递归的逻辑
-
-3、什么是深度优先？什么是广度优先？
 

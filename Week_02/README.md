@@ -22,7 +22,7 @@
 | [15. 三数之和](https://leetcode-cn.com/problems/3sum/)       | 中等           |                                                              |                                                              | 0816 | 0816 | 0817 |      |      |      |      |
 | [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses/) | 简单           |                                                              | 第一遍，其实是08.19凌晨做的。终于做对了一道，思路是正确的，不过代码行数过多。<br />第二遍，直接看题解 | 0818 | 0818 |      |      |      |      |      |
 | [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)<br /><br />[239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) | 简单<br />困难 | 解法2：优化暴力解法<br />解法3：单向的双端队列               | 第一遍：使用暴力法，超过20%<br />然后看了两个解法，没去敲第二遍。<br />反思下，这道题弄了快2个小时了，晚上效率太低，还有点困。<br />早起做，在公司休息的时候做。<br />其实，对于题解看不懂的，或抄或记。 | 0819 |      |      |      |      |      |      |
-| [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/) | 简单           | 排序法、哈希法（记录次数）、字母桶法                         | 第一遍：写出两种解法                                         | 0823 |      |      |      |      |      |      |
 | [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [剑指 Offer 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/) | 中等           |                                                              | 第一遍：没看懂，默写下来<br />第二遍：写下来，继续理解。维护三个指针a、b、c，第i个丑数dp[i]一定是dp[a]×*2、dp[b]*×3、dp[c]×5中最小的那个，如果选中其中一个，那个指针进行加一操作。 | 0823 | 0823 |      |      |      |      |      |
 | [347. 前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
@@ -366,7 +366,11 @@ class Solution {
 
 ![image-20200823164137524](C:\Users\shuai\AppData\Roaming\Typora\typora-user-images\image-20200823164137524.png)
 
-
+\#学号：G20200388020139
+\#姓名：陈大帅
+\#班级：14期1班1组
+\#语言：Java
+\#作业&总结链接：https://github.com/Changer0914/algorithm014-algorithm014/tree/master/Week_02
 
 ```java
 // 哈希桶数组，table.length  区分 size

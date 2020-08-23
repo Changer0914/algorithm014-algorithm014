@@ -1,6 +1,9 @@
 package day07;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Solution {
 
@@ -45,7 +48,61 @@ public class Solution {
         return dp[n-1];
     }
 
+    /**
+     * 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+     *
+     * 示例 1:
+     *
+     * 输入: s = "anagram", t = "nagaram"
+     * 输出: true
+     * 示例 2:
+     *
+     * 输入: s = "rat", t = "car"
+     * 输出: false
+     * 说明:
+     * 你可以假设字符串只包含小写字母。
+     *
+     * 进阶:
+     * 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
+     *
+     *  切题四件套。
+     *      1、什么是 字母异位词
+     *           两个单词包含相同的字母，但是次序不同
+     *      2、解法
+     *        1）排序， 比对
+     *        2）使用hash 记录每个字母出现的次数
+     *
+     *
+     * @param s
+     * @param t
+     * @return
+     */
+    public static boolean isAnagram(String s, String t) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (Character c : s.toCharArray()) {
+            Integer count = map.getOrDefault(c, 0);
+            map.put(c, ++count);
+        }
+        for (Character c : t.toCharArray()) {
+            boolean existKey = map.containsKey(c);
+            if (!existKey) return false;
+            Integer count = map.get(c);
+            if (count == 1) map.remove(c);
+            else map.put(c, --count);
+        }
+        return map.size() == 0;
+    }
+
+    public static boolean isAnagram2(String s, String t) {
+        char[] ss = s.toCharArray();
+        Arrays.sort(ss);
+        char[] tt = t.toCharArray();
+        Arrays.sort(tt);
+        return String.valueOf(ss).equalsIgnoreCase(String.valueOf(tt));
+    }
+
     public static void main(String[] args) {
+        System.out.println(isAnagram("anagram", "nagaram"));
     }
 
 }
