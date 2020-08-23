@@ -18,14 +18,17 @@
 | [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [剑指 Offer 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [347. 前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
-| [590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/) | 简单           | 递归、迭代                                                   | 先序遍历：根左右<br />后序遍历：左右根 （先序遍历的变形：根右左，再翻转下，就是后序遍历） | 0820 | 0821 |      |      |      |      |      |
+| [590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/) | 简单           | 递归、栈+迭代（前序的变形+翻转）                             | 先序遍历：根左右<br />后序遍历：左右根 （先序遍历的变形：根右左，再翻转下，就是后序遍历） | 0820 | 0821 |      |      |      |      |      |
 | [589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/) | 简单           | 递归、栈+迭代                                                | 第一遍：递归<br />第二遍：栈+迭代                            | 0820 | 0820 | 0821 |      |      |      |      |
 | [429. N叉树的层序遍历](https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
-| [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
-| [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
+| [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 中等           | 递归、栈+迭代                                                | 第二遍：有个解法是莫里斯遍历，还未学习。<br />递归的调用过程是不断往左边走，当左边走不下去了，就打印节点，并转向右边，然后右边继续这个过程，引入栈，模拟这个过程。 | 0822 | 0822 |      |      |      |      |      |
+| [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/) | 中等           | 递归                                                         |                                                              | 0821 | 0822 |      |      |      |      |      |
 | [剑指 Offer 40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/) | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 简单           |                                                              |                                                              |      |      |      |      |      |      |      |
 | [258. 各位相加](https://leetcode-cn.com/problems/add-digits/) | 简单           | 递归法、迭代法、数学法                                       | 第一遍：太困了，没写出来                                     | 0821 |      |      |      |      |      |      |
+| [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) | 简单           | 递归、广度优先BFS、深度优先DFS                               | 第一遍：竟然写出来了，哈哈。此时是2020年8月23日 0:45<br />第二遍，打算学习下广度优先和深度优先。 | 0823 |      |      |      |      |      |      |
+| [145. 二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/) | 困难           | 递归、栈+迭代（前序的变形+翻转）                             |                                                              | 0822 | 0822 |      |      |      |      |      |
+| [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) | 中等           |                                                              |                                                              |      |      |      |      |      |      |      |
 
 
 
@@ -225,25 +228,260 @@ class Solution {
 }
 ```
 
+[144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
+
+```java
+class Solution {
+    
+    // 解法一：迭代 + 栈（右节点先进栈，左节点后进栈）
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode pop = stack.pop();
+            if (pop == null) continue;
+            list.add(pop.val);
+            stack.push(pop.right);
+            stack.push(pop.left);
+        }
+        return list;
+    }
+    
+    // 解法二：递归
+    public List<Integer> preorderTraversal2(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        preorderTraversalDG(root, list);
+        return list;
+    }
+    private void preorderTraversalDG(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        list.add(root.val);
+        // 左
+        preorderTraversalDG(root.left, list);
+        preorderTraversalDG(root.right, list);
+    }
+    
+}
+```
+
+[145. 二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
+
+```java
+class Solution {
+	// 会写前序遍历，就会写后序的
+    // 后序：根左右（前序） 变形成  根右左  再翻转得  左右根（后序）
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Stack<TreeNode> stack = new Stack();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode topElement = stack.pop();
+            if (topElement == null) continue;
+            list.add(topElement.val);
+            stack.push(topElement.left);
+            stack.push(topElement.right);
+        }
+        Collections.reverse(list);
+        return list;
+    }
+}
+```
+
+[94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+
+```java
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+        while (!stack.isEmpty() || current != null) {
+            // 模拟递归过程：不断往左子树方向走，每走一次就将当前节点保存到栈中
+            if (current != null) {
+                stack.push(current);
+                current = current.left;
+                continue;
+            }
+            // 当前节点为空，说明左边走到头了，从栈中弹出节点并保存
+            // 然后转向右边节点，继续上面整个过程
+            TreeNode tmp = stack.pop();
+            list.add(tmp.val);
+            current = tmp.right;
+        }
+        return list;
+    }
+}
+```
+
+[104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+
+```java
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftD = maxDepth(root.left);
+        int rightD = maxDepth(root.right);
+        return leftD < rightD ? rightD + 1 : leftD + 1;
+    }
+}
+```
+
 
 
 ## 三、作业
 
-### 1、写一个关于 HashMap 的小总结。
+### 1、写一个关于 HashMap 的小总结
+
+做过几道题，都是引入了HashMap，用空间换时间，使得查找的效率变成 O(1) 。
+
+面试时，经常考察HashMap，现在认真地学习下。
+
+#### 1.1 存储结构 - 字段 1.8
+
+数组 + 链表 + 红黑树（1.8引入红黑树），链表长度大于8时会转换成红黑树。
+
+![image-20200823164137524](C:\Users\shuai\AppData\Roaming\Typora\typora-user-images\image-20200823164137524.png)
+
+
+
+```java
+// 哈希桶数组，table.length  区分 size
+transient Node<K,V>[] table;
+
+static class Node<K,V> implements Map.Entry<K,V> {
+        final int hash;  // key的hash值，数组的索引位置
+        final K key;
+        V value;
+        Node<K,V> next; // 链表上的下一个节点位置
+        
+}
+
+// 默认容量为16个（可存储key-value的个数）
+static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
+static final int MAXIMUM_CAPACITY = 1 << 30;
+// 默认的负载因子，计算链表长度用的
+static final float DEFAULT_LOAD_FACTOR = 0.75f;
+// 变成红黑树的那个值。  The bin count threshold for using a tree rather than list for a bin.
+static final int TREEIFY_THRESHOLD = 8;
+static final int UNTREEIFY_THRESHOLD = 6;
+static final int MIN_TREEIFY_CAPACITY = 64;
+
+// 记录 K-V 个数
+transient int size;
+// 用来记录HashMap内部结构发生变化的次数，主要用于迭代的快速失败。强调一点，内部结构发生变化指的是结构发生变化，例如put新键值对，但是某个key对应的value值被覆盖不属于结构变化。
+transient int modCount;
+int threshold;
+final float loadFactor;
+```
+
+首先，Node[] table的初始化长度length(默认值是16)，Load factor为负载因子(默认值是0.75)，threshold是HashMap所能容纳的最大数据量的Node(键值对)个数。threshold = length * Load factor。也就是说，在数组定义好长度之后，负载因子越大，所能容纳的键值对个数越多。
+
+结合负载因子的定义公式可知，threshold就是在此Load factor和length(数组长度)对应下允许的最大元素数目，超过这个数目就重新resize(扩容)，扩容后的HashMap容量是之前容量的两倍。默认的负载因子0.75是对空间和时间效率的一个平衡选择，建议大家不要修改，除非在时间和空间比较特殊的情况下，如果内存空间很多而又对时间效率要求很高，可以降低负载因子Load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1。
+
+如果哈希桶数组很大，即使较差的Hash算法也会比较分散，如果哈希桶数组数组很小，即使好的Hash算法也会出现较多碰撞，所以就需要**在空间成本和时间成本之间权衡**，其实就是在根据实际情况确定哈希桶数组的大小，并在此基础上设计好的Hash算法减少Hash碰撞。那么通过什么方式来控制map使得Hash碰撞的概率又小，哈希桶数组（Node[] table）占用空间又少呢？答案就是**好的Hash算法和扩容机制。**
+
+拉链过长，影响查找性能的优化：
+即使负载因子和Hash算法设计的再合理，也免不了会出现拉链过长的情况，一旦出现拉链过长，则会严重影响HashMap的性能。于是，在JDK1.8版本中，对数据结构做了进一步的优化，引入了红黑树。而当链表长度太长（默认超过8）时，链表就转换为红黑树，利用红黑树快速增删改查的特点提高HashMap的性能。
+
+#### 1.2 确定哈希桶数组索引位置 1.8
+
+// 哈希算法 
+static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+
+
+
+#### 1.3 存 put(K key, V value) 1.8
+
+```java
+   /**
+     * Implements Map.put and related methods
+     *
+     * @param hash hash for key
+     * @param key the key
+     * @param value the value to put
+     * @param onlyIfAbsent if true, don't change existing value
+     * @param evict if false, the table is in creation mode.
+     * @return previous value, or null if none
+     */
+final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
+    Node<K,V>[] tab; Node<K,V> p; int n, i;
+    if ((tab = table) == null || (n = tab.length) == 0)
+        n = (tab = resize()).length;
+    if ((p = tab[i = (n - 1) & hash]) == null)
+        tab[i] = newNode(hash, key, value, null);
+    else {
+        Node<K,V> e; K k;
+        if (p.hash == hash &&
+            ((k = p.key) == key || (key != null && key.equals(k))))
+            e = p;
+        else if (p instanceof TreeNode)
+            e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
+        else {
+            for (int binCount = 0; ; ++binCount) {
+                if ((e = p.next) == null) {
+                    p.next = newNode(hash, key, value, null);
+                    if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                        treeifyBin(tab, hash);
+                    break;
+                }
+                if (e.hash == hash &&
+                    ((k = e.key) == key || (key != null && key.equals(k))))
+                    break;
+                p = e;
+            }
+        }
+        if (e != null) { // existing mapping for key
+            V oldValue = e.value;
+            if (!onlyIfAbsent || oldValue == null)
+                e.value = value;
+            afterNodeAccess(e);
+            return oldValue;
+        }
+    }
+    ++modCount;
+    if (++size > threshold)
+        resize();
+    afterNodeInsertion(evict);
+    return null;
+}
+```
+
+#### 1.4 取 get(Object key) 1.8
+
+
+
+
 
 ### 2、HeapSort ：自学 https://www.geeksforgeeks.org/heap-sort/
 
 ### 3、自己画一下有向有权图
 
-### 4、递归如何转为迭代
-
-### 5、做上周未完成的
+### 4、做上周未完成的
 
 总结栈、队列的Java API
 
 
 
-## 四、总结反思
+## 四、总结
+
+1、反思与改进
 
 反思：
 	追求一遍理解，理解不了，也不去抄，不去记。
@@ -254,4 +492,12 @@ class Solution {
 	不追求一遍理解，第一遍理解不了，那就多遍，总会理解的。
 	早起练习、闲暇时间练习、晚上在公司练习、睡前练习。
 	思考5分钟，没想法，直接看题解，或抄，或背。
+
+2、递归三要素
+
+1）确定递归方法的参数和返回值
+2）确定终止条件
+3）确定单层递归的逻辑
+
+3、什么是深度优先？什么是广度优先？
 
