@@ -514,33 +514,28 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 
 ### 2、HeapSort ：自学 https://www.geeksforgeeks.org/heap-sort/
 
-**Heap Sort Algorithm for sorting in increasing order:**
-**1.** Build a max heap from the input data.
-**2.** At this point, the largest item is stored at the root of the heap. Replace it with the last item of the heap followed by reducing the size of heap by 1. Finally, heapify the root of the tree.
-**3.** Repeat step 2 while size of heap is greater than 1.
-
 ```java
 // Java program for implementation of Heap Sort 
-public class HeapSort 
+public class HeapSort
 {   
     // 二叉堆排序
     public void sort(int arr[]) 
     { 
         int n = arr.length; 
   
-        // Build heap (rearrange array) 
+        // 1. Build heap (rearrange array) 
         for (int i = n / 2 - 1; i >= 0; i--) 
             heapify(arr, n, i); 
   
         // One by one extract an element from heap 
         for (int i=n-1; i>0; i--) 
         { 
-            // Move current root to end 
+            // 2. Move current root to end 
             int temp = arr[0]; 
             arr[0] = arr[i]; 
             arr[i] = temp; 
   
-            // call max heapify on the reduced heap 
+            // 3. call max heapify on the reduced heap 
             heapify(arr, i, 0); 
         } 
     } 
