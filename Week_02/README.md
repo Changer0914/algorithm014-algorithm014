@@ -528,6 +528,12 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 
 
 
+Linked List 是特殊化的 Tree
+
+Tree 是特殊化的 Graph
+
+
+
 3、第六课：堆、二叉堆、图
 
 堆有很多种实现，二叉堆只是一个常见且简单的实现，不是最优的实现。

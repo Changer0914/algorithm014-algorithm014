@@ -1,12 +1,13 @@
 # 极客大学「算法训练营-第14期」作业提交仓库
 
-\#学号：G20200388020139<br/>
+作业提交：https://github.com/algorithm014-algorithm014/algorithm014-algorithm014/issues
+<br/>
+
+#学号：G20200388020139<br/>
 \#姓名：陈大帅<br/>
 \#班级：14期1班1组<br/>
 \#语言：Java<br/>
 \#作业&总结链接：https://github.com/Changer0914/algorithm014-algorithm014/tree/master/Week_02
-
-<br/>
 
 ## 作业批改
 
