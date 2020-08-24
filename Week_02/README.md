@@ -1,10 +1,10 @@
-\#学号：G20200388020139
-\#姓名：陈大帅
-\#班级：14期1班1组
-\#语言：Java
+\#学号：G20200388020139<br/>
+\#姓名：陈大帅<br/>
+\#班级：14期1班1组<br/>
+\#语言：Java<br/>
 \#作业&总结链接：https://github.com/Changer0914/algorithm014-algorithm014/tree/master/Week_02
 
-
+<br/>作业批改：https://shimo.im/sheets/qQWtXYkj8g9WwWX3
 
 ## 一、实战
 
@@ -364,13 +364,7 @@ class Solution {
 
 数组 + 链表 + 红黑树（1.8引入红黑树），链表长度大于8时会转换成红黑树。
 
-![image-20200823164137524](C:\Users\shuai\AppData\Roaming\Typora\typora-user-images\image-20200823164137524.png)
-
-\#学号：G20200388020139
-\#姓名：陈大帅
-\#班级：14期1班1组
-\#语言：Java
-\#作业&总结链接：https://github.com/Changer0914/algorithm014-algorithm014/tree/master/Week_02
+![结构图](https://awps-assets.meituan.net/mit-x/blog-images-bundle-2016/e4a19398.png)
 
 ```java
 // 哈希桶数组，table.length  区分 size
@@ -450,13 +444,13 @@ static int indexFor(int h, int length) {
 }    
 ```
 
-![image-20200823180212795](C:\Users\shuai\AppData\Roaming\Typora\typora-user-images\image-20200823180212795.png)
+<img src="https://awps-assets.meituan.net/mit-x/blog-images-bundle-2016/45205ec2.png" alt="hash计算" style="zoom:50%;" />
 
 
 
 #### 1.3 存 put(K key, V value) 1.8
 
-![image-20200823184615606](C:\Users\shuai\AppData\Roaming\Typora\typora-user-images\image-20200823184615606.png)
+![](https://awps-assets.meituan.net/mit-x/blog-images-bundle-2016/d669d29c.png)
 
 ```java
    /**
