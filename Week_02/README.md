@@ -309,16 +309,16 @@ class Solution {
         TreeNode current = root;
         while (!stack.isEmpty() || current != null) {
             // 模拟递归过程：不断往左子树方向走，每走一次就将当前节点保存到栈中
-            if (current != null) {
-                stack.push(current);
-                current = current.left;
+            while (current != null) {
+                stack.push(current);  // 不为空，才放入栈中
+                current = current.left; // 如果是叶子节点，这时current==null，这时栈中有元素
                 continue;
             }
             // 当前节点为空，说明左边走到头了，从栈中弹出节点并保存
             // 然后转向右边节点，继续上面整个过程
             TreeNode tmp = stack.pop();
             list.add(tmp.val);
-            current = tmp.right;
+            current = tmp.right; // 如果是叶子节点，这时current==null，这时栈中有元素
         }
         return list;
     }

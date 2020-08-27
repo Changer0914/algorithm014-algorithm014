@@ -25,8 +25,9 @@
 | [169. 多数元素](https://leetcode-cn.com/problems/majority-element/) | 简单 |                                                              |                                                              |      |      |      |      |      |      |      |
 | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 中等 |                                                              |                                                              |      |      |      |      |      |      |      |
 | [51. N皇后](https://leetcode-cn.com/problems/n-queens/)      | 困难 |                                                              |                                                              |      |      |      |      |      |      |      |
-| [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) |      |                                                              |                                                              |      |      |      |      |      |      |      |
-|                                                              |      |                                                              |                                                              |      |      |      |      |      |      |      |
+| [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 中等 |                                                              |                                                              | 0822 | 0822 | 0826 |      |      |      |      |
+| [剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/) | 简单 | 链表的反转                                                   | 简单，可以快速写出来，用list、stack都可以，不过这种方式没超过50%，看题解，有个递归的写法，学习下。<br />解法二：链表的反转，然后遍历输出<br />解法三：遍历链表，将值从数组尾部不断加入 | 0824 | 0824 |      |      |      |      |      |
+| [429. N叉树的层序遍历](https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/) | 中等 |                                                              | 第一遍：背诵递归代码<br />第二遍：默写递归代码<br />         | 0826 | 0826 |      |      |      |      |      |
 
 
 
@@ -113,6 +114,65 @@ public int climbStairs(int n) {
             r = p + q;
         }
         return r;
+}
+```
+
+[剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+
+    public int[] reversePrint(ListNode head) {
+        int length = getListNodeLength(head);
+        int[] arr = new int[length];
+        while (head != null) {
+            arr[length-- - 1] = head.val;
+            head = head.next;
+        }
+        return arr;
+    }
+    
+    /**
+     * 获取链表的长度
+     *
+     * @return
+     */
+    public int getListNodeLength(ListNode node) {
+        int count = 0;
+        while (node != null) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+
+    /**
+     * 链表反转
+     *
+     * @param head
+     * @return
+     */
+    public ListNode reverseList(ListNode head) {
+        // 终止条件
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // 下探到 下一层
+        ListNode newNode = reverseList(head.next);
+        // 交换
+        head.next.next = head;
+        head.next = null;
+        return newNode;
+    }
+    
 }
 ```
 
