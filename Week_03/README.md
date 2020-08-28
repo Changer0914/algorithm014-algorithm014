@@ -28,6 +28,7 @@
 | [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 中等 |                                                              |                                                              | 0822 | 0822 | 0826 |      |      |      |      |
 | [剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/) | 简单 | 链表的反转                                                   | 简单，可以快速写出来，用list、stack都可以，不过这种方式没超过50%，看题解，有个递归的写法，学习下。<br />解法二：链表的反转，然后遍历输出<br />解法三：遍历链表，将值从数组尾部不断加入 | 0824 | 0824 |      |      |      |      |      |
 | [429. N叉树的层序遍历](https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/) | 中等 |                                                              | 第一遍：背诵递归代码<br />第二遍：默写递归代码<br />         | 0826 | 0826 |      |      |      |      |      |
+| [18. 四数之和](https://leetcode-cn.com/problems/4sum/)       | 中等 |                                                              | 第一遍：写出来了。<br />第二遍：看题解后进行优化。           | 0828 | 0828 |      |      |      |      |      |
 
 
 
