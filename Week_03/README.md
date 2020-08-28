@@ -15,7 +15,7 @@
 | [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) | 简单 |                                                              |                                                              |      |      |      |      |      |      |      |
 | [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 简单 |                                                              |                                                              |      |      |      |      |      |      |      |
 | [297. 二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) | 困难 |                                                              |                                                              |      |      |      |      |      |      |      |
-| [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)<br />[剑指 Offer 68 - II. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/) | 中等 |                                                              | **作业**                                                     |      |      |      |      |      |      |      |
+| [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 中等 | 递归                                                         | **作业**。<br />树的问题基本上都可以用递归去解决。<br />一看就懂，但就是想不到，说下  后序遍历的模板？？？<br />第三遍：用递归写下，再用暴力法写下。 | 0827 | 0827 |      |      |      |      |      |
 | [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 中等 |                                                              | 作业                                                         |      |      |      |      |      |      |      |
 | [77. 组合](https://leetcode-cn.com/problems/combinations/)   | 中等 |                                                              | **作业**                                                     |      |      |      |      |      |      |      |
 | [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 中等 |                                                              | 作业                                                         |      |      |      |      |      |      |      |
@@ -173,6 +173,41 @@ class Solution {
         return newNode;
     }
     
+}
+```
+
+[236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // 终止条件
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        // 在左子树中找
+        TreeNode leftFindAncestor = lowestCommonAncestor(root.left, p, q);
+        TreeNode rightFindAncestor = lowestCommonAncestor(root.right, p, q);
+        if (leftFindAncestor == null) {
+            // 左边没找到，一定在右边
+            return rightFindAncestor;
+        }
+         if (rightFindAncestor == null) {
+            // 右边没找到，一定在右边
+            return leftFindAncestor;
+        }
+        // 说明 p,q 分列在 root 的 异侧 （分别在 左 / 右子树），因此 root 为最近公共祖先，返回 root
+        return root;
+    }
 }
 ```
 
