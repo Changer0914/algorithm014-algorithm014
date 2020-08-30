@@ -16,10 +16,10 @@
 | [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 简单 |                                                              |                                                              |      |      |      |      |      |      |      |
 | [297. 二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) | 困难 |                                                              |                                                              |      |      |      |      |      |      |      |
 | [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 中等 | 递归                                                         | **作业**。<br />树的问题基本上都可以用递归去解决。<br />一看就懂，但就是想不到，说下  后序遍历的模板？？？<br />第三遍：用递归写下，再用暴力法写下。 | 0827 | 0827 |      |      |      |      |      |
-| [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 中等 |                                                              | 作业                                                         |      |      |      |      |      |      |      |
-| [77. 组合](https://leetcode-cn.com/problems/combinations/)   | 中等 |                                                              | **作业**                                                     |      |      |      |      |      |      |      |
-| [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 中等 |                                                              | 作业                                                         |      |      |      |      |      |      |      |
-| [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) | 中等 |                                                              | 作业                                                         |      |      |      |      |      |      |      |
+| [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 中等 |                                                              | **作业**<br />直接看题解。                                   | 0830 | 0830 |      |      |      |      |      |
+| [77. 组合](https://leetcode-cn.com/problems/combinations/)   | 中等 | 递归之回溯                                                   | **作业**<br />看题解：[回溯思想团灭排列、组合、子集问题](https://leetcode-cn.com/problems/combinations/solution/hui-su-si-xiang-tuan-mie-pai-lie-zu-he-zi-ji-wen-2/) ，不过时间没超过50%，需要优化，后面的剪枝条件，没看懂<br />剪枝：[回溯算法 + 剪枝](https://leetcode-cn.com/problems/combinations/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-ma-/) | 0830 | 0830 |      |      |      |      |      |
+| [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 中等 |                                                              | **作业**                                                     |      |      |      |      |      |      |      |
+| [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) | 中等 |                                                              | **作业**                                                     |      |      |      |      |      |      |      |
 | [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)    | 中等 | 分治                                                         | 解法：看了视频后，背诵，默写。                               | 0829 | 0829 |      |      |      |      |      |
 | [78. 子集](https://leetcode-cn.com/problems/subsets/)        | 中等 |                                                              |                                                              |      |      |      |      |      |      |      |
 | [169. 多数元素](https://leetcode-cn.com/problems/majority-element/) | 简单 |                                                              |                                                              |      |      |      |      |      |      |      |
@@ -231,7 +231,117 @@ class Solution {
 }
 ```
 
+[105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
+![](..\doc\105从前序与中序遍历序列构造二叉树.png)
+
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+
+    private Map<Integer, Integer> map = new HashMap<>();
+    
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        int len = preorder.length;
+        for (int i = 0; i < inorder.length; i++) {
+            map.put(inorder[i], i);
+        }
+        TreeNode root = myBuildTree(preorder,0, len - 1, inorder, 0, len - 1);
+        return root;
+    }
+    
+   /**
+     *
+     * @param preorder 前序遍历的数组
+     * @param pre_start  前序 - 子树的开始位置
+     * @param pre_end    前序 - 子树的结束位置
+     * @param inorder 中序遍历的数组
+     * @param in_start   中序 - 子树的开始位置
+     * @param in_end     中序- 子树的结束位置
+     * @return
+     */
+    private TreeNode myBuildTree(int[] preorder, int pre_start, int pre_end, int[] inorder, int in_start, int in_end) {
+        // 终止条件
+        if (pre_start > pre_end) {
+            return null;
+        }
+        // 在前序遍历终找到根节点
+        int pre_root_value = preorder[pre_start];
+        // 从中序遍历终找到根节点的位置
+        int in_root_index = findRootIndex(inorder, pre_root_value);
+        // 左子树的数量
+        int left_num = in_root_index - in_start;
+        TreeNode root = new TreeNode(pre_root_value);
+        // 左子树
+        root.left = myBuildTree(preorder, pre_start + 1, pre_start + left_num, inorder, in_start, in_root_index - 1);
+        // 右子树
+        root.right = myBuildTree(preorder, pre_start + left_num + 1, pre_end, inorder, in_root_index + 1, in_end);
+        return root;
+    }
+
+    /**
+     * 从中序遍历终找到根节点的位置
+     *   根据值在数组中找下标
+     * @param inorder
+     * @param pre_root_value
+     * @return
+     */
+    private int findRootIndex(int[] inorder, int pre_root_value) {
+        // for (int i = 0; i < inorder.length; i++) {
+        //     if (inorder[i] == pre_root_value) {
+        //         return i;
+        //     }
+        // }
+        // return -1;
+        
+        // 优化下：用空间换时间
+        return map.get(pre_root_value);
+    }
+}
+```
+
+[77. 组合](https://leetcode-cn.com/problems/combinations/)
+
+![](..\doc\77组合.png)
+
+```java
+// 看题解，学会画树
+class Solution {
+    List<List<Integer>> res = new ArrayList<>();
+    public List<List<Integer>> combine(int n, int k) {
+        if (n < 1 || k < 1 || n < k) {
+            return res;
+        }
+        myCombine(n, k, 1, new Stack<>());
+        return res;
+    }
+    private void myCombine(int n, int k, int start, Stack<Integer> stack) {
+        if (k == stack.size()) {
+            res.add(new ArrayList<>(stack));
+            return;
+        }
+        // 优化： i <= n - (k - stack.size()) + 1 这里没看懂
+        // 时间复杂度是多少呢？  
+        for (int i = start; i <= n - (k - stack.size()) + 1; i++) {
+        // for (int i = start; i <= n; i++) {
+            // 当前层   放入[1,2,3]后，弹出3，放入4
+            stack.push(i);
+            // 下一层   
+            myCombine(n, k, i + 1, stack);
+            // 撤销。理解回溯比较困难的是理解「回到过去」，现实世界里我们无法回到过去，但是在算法的世界里可以。
+            stack.pop();
+        }
+    }
+}
+```
 
 ## 四、总结
 
@@ -283,3 +393,5 @@ private static int divide_conquer(Problem problem, int params) {
 ### 666、周总结
 
 这周没有学习新的数据结构，学的都是算法。
+
+根据题意，学会画树结构。从全排列问题开始理解回溯算法   https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
