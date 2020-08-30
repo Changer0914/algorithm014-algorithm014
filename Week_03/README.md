@@ -20,7 +20,7 @@
 | [77. 组合](https://leetcode-cn.com/problems/combinations/)   | 中等 |                                                              | **作业**                                                     |      |      |      |      |      |      |      |
 | [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 中等 |                                                              | 作业                                                         |      |      |      |      |      |      |      |
 | [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) | 中等 |                                                              | 作业                                                         |      |      |      |      |      |      |      |
-| [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)    | 中等 |                                                              |                                                              |      |      |      |      |      |      |      |
+| [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)    | 中等 | 分治                                                         | 解法：看了视频后，背诵，默写。                               | 0829 | 0829 |      |      |      |      |      |
 | [78. 子集](https://leetcode-cn.com/problems/subsets/)        | 中等 |                                                              |                                                              |      |      |      |      |      |      |      |
 | [169. 多数元素](https://leetcode-cn.com/problems/majority-element/) | 简单 |                                                              |                                                              |      |      |      |      |      |      |      |
 | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 中等 |                                                              |                                                              |      |      |      |      |      |      |      |
@@ -208,6 +208,25 @@ class Solution {
         }
         // 说明 p,q 分列在 root 的 异侧 （分别在 左 / 右子树），因此 root 为最近公共祖先，返回 root
         return root;
+    }
+}
+```
+
+[50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
+
+```java
+class Solution {
+    public double myPow(double x, int n) {
+        long N = n;
+        return N >= 0 ? fastPow(x, N) : 1.0 / fastPow(x, -N);
+    }
+    private double fastPow(double x, long n) {
+        if (n == 0) {
+            return 1;
+        }
+        // 分治：分成子问题，然后合并
+        double subR = fastPow(x, n / 2);
+        return n % 2 == 1 ? subR * subR * x : subR * subR; 
     }
 }
 ```
