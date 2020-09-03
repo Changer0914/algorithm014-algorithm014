@@ -7,7 +7,7 @@
 | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 简单 |                        | 作业                                                         |       |       |       |      |      |      |      |
 | [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)  | 中等 |                        | 作业<br />看了视频讲解，又看了20分钟题解，终于有点理解了，贪心算法代码量少，而且执行效率很高（每次都选择最优解，不会选择其他次优解）。 | 0902  | 0902  |       |      |      |      |      |
 | [45. 跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/) | 困难 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 简单 |                        |                                                              |       |       |       |      |      |      |      |
+| [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 简单 | 二分查找法、牛顿迭代法 | 直接看题解。<br />二分查找看这篇文章：[写对二分查找不能靠模板，需要理解加练习](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/) | 0903  | 0903  |       |      |      |      |      |
 | [874. 模拟行走机器人](https://leetcode-cn.com/problems/walking-robot-simulation/) | 简单 |                        | 作业                                                         |       |       |       |      |      |      |      |
 | [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/) | 简单 |                        |                                                              |       |       |       |      |      |      |      |
 | [433. 最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/) | 中等 |                        |                                                              |       |       |       |      |      |      |      |
@@ -110,6 +110,38 @@ public int findContentChildren(int[] g, int[] s) {
         cookie++;
     }
     return child;
+}
+```
+
+[69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)
+
+```java
+// 二分查找法
+public int mySqrt(int y) {
+    if (y == 0 || y == 1) {
+        return y;
+    }
+    int low = 1;
+    int high = y;
+    while (low <= high) {
+        int middle = (high - low) / 2 + low;
+        if (middle * middle > y) {
+            high = middle - 1;
+        } else {
+            low = middle + 1;
+        }
+    }
+    return high;
+}
+// 牛顿迭代法
+public int mySqrt(int y) {
+    long x = y;
+    while (x * x > y) {
+        // 减少x的值
+        // x = (x + x) / 2;
+        x = (x + y / x) / 2;
+    }
+    return (int)x;
 }
 ```
 
@@ -239,12 +271,15 @@ class Solution {
 public int binarySearch(int[] array, int target) {
     int left = 0, right = array.length - 1, mid;
     while (left <= right) {
+        // 计算中间值
         mid = (right - left) / 2 + left;
         if (array[mid] == target) {
             return mid;
         } else if (array[mid] > target) {
+            // 目标值在mid左边
             right = mid - 1;
         } else {
+			// 目标值在mid右边
             left = mid + 1;
         }
     }
@@ -252,7 +287,16 @@ public int binarySearch(int[] array, int target) {
 }
 ```
 
-4、【笔记】贪心的实现、特性及实战题目解析
+使用二分查找的三个条件： 但是[33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)不满足有序，还是强行用了。
+
+- 有序性（单调递增或递减）
+- 存在上下界
+- 可以通过索引访问
+
+二分查找看这篇文章：https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/
+
+
+### 4、【笔记】贪心的实现、特性及实战题目解析
 
 贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，**不能回退**。
 
