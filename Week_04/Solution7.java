@@ -72,13 +72,14 @@ public class Solution7 {
         int wordLen = beginWord.length();
         while (!queue.isEmpty()) {
             int queueSize = queue.size();
-            // 广度优先遍历，当前层
+            // 广度优先遍历，当前层。
             for (int i = 0; i < queueSize; i++) {
-                // 出队
+                // 出队：当前层元素出队后，需要将下层元素都入队。
                 String word = queue.poll();
                 char[] charArray = word.toCharArray();
                 // 修改每一个字符
                 for (int j = 0; j < wordLen; j++) {
+                    // hit  先变换第一位，h从a->z走完后，再 i 从a->z 。 所以变换后需要恢复。。。
                     char originChar = charArray[j];
                     for (char c = 'a'; c <= 'z'; c++) {
                         // 跳过原始的

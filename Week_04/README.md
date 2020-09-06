@@ -175,10 +175,12 @@ public int ladderLength(String beginWord, String endWord, List<String> wordList)
         int queueSize = queue.size();
         // 广度优先遍历，当前层
         for (int i = 0; i < queueSize; i++) {
-            // 出队
+            // 出队：当前层元素出队后，需要将下层元素都入队。
+            // 可以看到 第一轮结束后， hit 出队， hot 入队了。
             String word = queue.poll();
             char[] charArray = word.toCharArray();
             // 修改单词里的每一个字符
+            // 比如 hit  先变换第一位，h从a->z走完后，再 i 从a->z 。 所以变换后需要恢复。。。
             for (int j = 0; j < wordLen; j++) {
                 char originChar = charArray[j];
                 for (char c = 'a'; c <= 'z'; c++) {
@@ -192,9 +194,10 @@ public int ladderLength(String beginWord, String endWord, List<String> wordList)
                             return step + 1;
                         }
                         if (!visitedHash.contains(changeWord)) {
-                            // 没访问过，入队 并且标记为 已访问
-                            visitedHash.add(changeWord);
+                            // 没访问过，入队
                             queue.offer(changeWord);
+                            // 并且标记为 已访问
+                            visitedHash.add(changeWord);
                         }
                     }
                 }
