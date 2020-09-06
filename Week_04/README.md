@@ -1,27 +1,31 @@
+---
+typora-root-url: ..\doc
+---
+
 ## 一、实战
 
-| 题目                                                         | 难度 | 关键字                 | 想法                                                         | 第一  | 第二  | 第三  | 四   | 五   | 六   | 七   |
-| ------------------------------------------------------------ | ---- | ---------------------- | ------------------------------------------------------------ | ----- | ----- | ----- | ---- | ---- | ---- | ---- |
-| [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) | 中等 | 队列<br />广度优先搜索 | <br />深度优先搜索DFS也是可以写的，深度你是知道的，可以放在深度所在的数组里。 | 0831  | 0831  |       |      |      |      |      |
-| [455. 分发饼干](https://leetcode-cn.com/problems/assign-cookies/) | 简单 |                        | 作业<br />https://leetcode-cn.com/problems/assign-cookies/solution/tan-xin-jie-fa-by-cyc2018/ | 0902  | 0902  |       |      |      |      |      |
-| [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 简单 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)  | 中等 |                        | 作业<br />看了视频讲解，又看了20分钟题解，终于有点理解了，贪心算法代码量少，而且执行效率很高（每次都选择最优解，不会选择其他次优解）。 | 0902  | 0902  |       |      |      |      |      |
-| [45. 跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/) | 困难 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 简单 | 二分查找法、牛顿迭代法 | 直接看题解。<br />二分查找看这篇文章：[写对二分查找不能靠模板，需要理解加练习](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/) | 0903  | 0903  |       |      |      |      |      |
-| [874. 模拟行走机器人](https://leetcode-cn.com/problems/walking-robot-simulation/) | 简单 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/) | 简单 |                        |                                                              |       |       |       |      |      |      |      |
-| [433. 最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/) | 中等 |                        |                                                              |       |       |       |      |      |      |      |
-| [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 中等 | DFS                    |                                                              |       |       | 09.01 |      |      |      |      |
-| [515. 在每个树行中找最大值](https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row/) | 中等 |                        |                                                              |       |       |       |      |      |      |      |
-| [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 中等 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/) | 困难 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) | 中等 |                        | 作业<br />将网格问题讲的非常清楚，收藏了。<br />[岛屿类问题的通用解法、DFS 遍历框架](https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-/) | 09.01 | 09.01 |       |      |      |      |      |
-| [529. 扫雷游戏](https://leetcode-cn.com/problems/minesweeper/) | 中等 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) | 中等 |                        |                                                              |       |       |       |      |      |      |      |
-| [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/) | 简单 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 中等 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/) | 中等 |                        | 作业                                                         |       |       |       |      |      |      |      |
-| [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/) | 中等 |                        | 作业                                                         |       |       |       |      |      |      |      |
+| 题目                                                         | 难度 | 关键字                                                       | 想法                                                         | 第一  | 第二  | 第三  | 四   | 五   | 六   | 七   |
+| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ----- | ----- | ----- | ---- | ---- | ---- | ---- |
+| [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) | 中等 | 队列<br />广度优先搜索                                       | <br />深度优先搜索DFS也是可以写的，深度你是知道的，可以放在深度所在的数组里。 | 0831  | 0831  |       |      |      |      |      |
+| [455. 分发饼干](https://leetcode-cn.com/problems/assign-cookies/) | 简单 | 贪心算法<br />每次都将最小的饼干分给胃口最小的孩子，这样可以满足更多的孩子。 | 作业<br />[贪心解法](https://leetcode-cn.com/problems/assign-cookies/solution/tan-xin-jie-fa-by-cyc2018/)<br />while + 双指针 | 0902  | 0902  | 0905  |      |      |      |      |
+| [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | 简单 |                                                              | 作业                                                         |       |       |       |      |      |      |      |
+| [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)  | 中等 |                                                              | 作业<br />看了视频讲解，又看了20分钟题解，终于有点理解了，贪心算法代码量少，而且执行效率很高（每次都选择最优解，不会选择其他次优解）。 | 0902  | 0902  |       |      |      |      |      |
+| [45. 跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/) | 困难 |                                                              | 作业                                                         |       |       |       |      |      |      |      |
+| [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | 简单 | 二分查找法、牛顿迭代法                                       | 直接看题解。<br />二分查找看这篇文章：[写对二分查找不能靠模板，需要理解加练习](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/) | 0903  | 0903  |       |      |      |      |      |
+| [874. 模拟行走机器人](https://leetcode-cn.com/problems/walking-robot-simulation/) | 简单 |                                                              | 作业                                                         |       |       |       |      |      |      |      |
+| [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/) | 简单 |                                                              |                                                              |       |       |       |      |      |      |      |
+| [433. 最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/) | 中等 |                                                              |                                                              |       |       |       |      |      |      |      |
+| [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 中等 | DFS                                                          |                                                              |       |       | 09.01 |      |      |      |      |
+| [515. 在每个树行中找最大值](https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row/) | 中等 |                                                              |                                                              |       |       |       |      |      |      |      |
+| [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | 中等 | 构建图+图的BFS（不是分两步，而是在BFS的过程种构建图）        | 作业<br />树结构 我为啥画不出来？？？ 没分析出是BFS还是DFS，怎么套用模板呢？<br />谁说数据结构是树？能够用BFS做的，也能用DFS去做，是吗?<br />看题解：[广度优先遍历、双向广度优先遍历（Java）](https://leetcode-cn.com/problems/word-ladder/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you-2/),这道题干货真多，多看几遍。<br />第一遍看完后，先把单向的BFS熟练写出来，双向BFS视频讲解还没看。<br />干货1：何时用双向BFS？明确起点和终点的情况下。 |       |       |       |      |      |      |      |
+| [126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/) | 困难 |                                                              | 作业                                                         |       |       |       |      |      |      |      |
+| [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) | 中等 |                                                              | 作业<br />将网格问题讲的非常清楚，收藏了。<br />[岛屿类问题的通用解法、DFS 遍历框架](https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-/) | 09.01 | 09.01 |       |      |      |      |      |
+| [529. 扫雷游戏](https://leetcode-cn.com/problems/minesweeper/) | 中等 |                                                              | 作业                                                         |       |       |       |      |      |      |      |
+| [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) | 中等 |                                                              |                                                              |       |       |       |      |      |      |      |
+| [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/) | 简单 | 迭代+记录5和10的张数                                         | 作业<br />怎么没想到在遍历的时候，记录下5和10元的张数呢？这道题很简单的。<br />去国际站上看更简洁的代码 | 09.05 | 09.05 |       |      |      |      |      |
+| [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | 中等 |                                                              | 作业                                                         |       |       |       |      |      |      |      |
+| [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/) | 中等 |                                                              | 作业                                                         |       |       |       |      |      |      |      |
+| [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/) | 中等 |                                                              | 作业                                                         |       |       |       |      |      |      |      |
 
 
 
@@ -145,6 +149,66 @@ public int mySqrt(int y) {
 }
 ```
 
+[127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/)
+
+![](/127单词接龙.png)
+
+```java
+public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+    // 第 1 步：先将 wordList 放到哈希表里，便于判断某个单词是否在 wordList 里
+    Set<String> wordHash = new HashSet<>(wordList);
+    if (!wordHash.contains(endWord)) {
+        return 0;
+    }
+    wordHash.remove(beginWord);
+
+    // 第 2 步：图的广度优先遍历，必须使用队列 和  表示是否访问过的 visited 哈希表
+    Queue<String> queue = new LinkedList<>();
+    queue.offer(beginWord);
+    Set<String> visitedHash = new HashSet<>();
+    visitedHash.add(beginWord);
+
+    // 初始化的时候步数为 1
+    int step = 1;
+    int wordLen = beginWord.length();
+    while (!queue.isEmpty()) {
+        int queueSize = queue.size();
+        // 广度优先遍历，当前层
+        for (int i = 0; i < queueSize; i++) {
+            // 出队
+            String word = queue.poll();
+            char[] charArray = word.toCharArray();
+            // 修改单词里的每一个字符
+            for (int j = 0; j < wordLen; j++) {
+                char originChar = charArray[j];
+                for (char c = 'a'; c <= 'z'; c++) {
+                    // 跳过原始的
+                    if (c == originChar) continue;
+                    // 变换后的单词
+                    charArray[j] = c;
+                    String changeWord = new String(charArray);
+                    if (wordHash.contains(changeWord)) {
+                        if (changeWord.equals(endWord)) {
+                            return step + 1;
+                        }
+                        if (!visitedHash.contains(changeWord)) {
+                            // 没访问过，入队 并且标记为 已访问
+                            visitedHash.add(changeWord);
+                            queue.offer(changeWord);
+                        }
+                    }
+                }
+                // 变换后需要恢复
+                charArray[j] = originChar;
+            }
+        }
+        // 当前层结束后，步数 + 1
+        step++;
+    }
+    return 0;
+}
+```
+
 
 
 ## 三、作业
@@ -193,7 +257,7 @@ private void travel(TreeNode root, int level, List<List<Integer>> results){
 }
 ```
 
-迭代写法
+**迭代写法**
 
 ```c++
 void dfs(Node* root) {
@@ -305,3 +369,21 @@ public int binarySearch(int[] array, int target) {
 如何判断这道题可用贪心算法求解？
 
 从前往后贪、从后往前贪、需要转化下才能贪、从局部开始贪。
+
+### 5、总结
+
+本周懈怠了，未按照五毒神掌进行刷题。
+
+还是惧怕，在做[127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/)时从做题、看题解、自己写出来，用时2小时。
+
+现在想来，本周应该做到每天4道题，保证每种算法都练习一次。
+
+第五周赶紧调整过来，工作忙的话，至少保证每天3道题。
+
+这周没学新的数据结构，数据结构前两周就学完了，后面都是算法学习。
+
+DFS和BFS：[31 | 深度和广度优先搜索：如何找出社交网络中的三度好友关系？](https://time.geekbang.org/column/article/70891)
+
+贪心算法：[37 | 贪心算法：如何用贪心算法实现Huffman压缩编码？](https://time.geekbang.org/column/article/73188)
+
+二分查找：[15 | 二分查找（上）：如何用最省内存的方式实现快速查找功能？](https://time.geekbang.org/column/article/42520)  [16 | 二分查找（下）：如何快速定位IP对应的省份地址？](https://time.geekbang.org/column/article/42733)
