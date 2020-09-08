@@ -1,7 +1,3 @@
----
-typora-root-url: ..\doc
----
-
 ## 一、实战
 
 | 题目                                                         | 难度 | 关键字                                                       | 想法                                                         | 第一  | 第二  | 第三  | 四   | 五   | 六   | 七   |
@@ -31,7 +27,7 @@ typora-root-url: ..\doc
 
 ## 二、精选代码
 
-> 优秀代码三问法：
+> 优秀代码三问：
 > 1、你学到了什么？
 > 2、时间复杂度
 > 3、空间复杂度
@@ -125,24 +121,23 @@ public int mySqrt(int y) {
     if (y == 0 || y == 1) {
         return y;
     }
-    int low = 1;
-    int high = y;
+    long low = 1;
+    long high = y;
     while (low <= high) {
-        int middle = (high - low) / 2 + low;
+        long middle = (high - low) / 2 + low;
         if (middle * middle > y) {
             high = middle - 1;
         } else {
             low = middle + 1;
         }
     }
-    return high;
+    return (int)high;
 }
 // 牛顿迭代法
 public int mySqrt(int y) {
     long x = y;
     while (x * x > y) {
-        // 减少x的值
-        // x = (x + x) / 2;
+        // 减少x的值   x = (x + x) / 2;
         x = (x + y / x) / 2;
     }
     return (int)x;
@@ -216,11 +211,19 @@ public int ladderLength(String beginWord, String endWord, List<String> wordList)
 
 ## 三、作业
 
-1、使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
+### 1、使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
 
-说明：同学们可以将自己的思路、代码写在第 4 周的学习总结中
+说明：同学们可以将自己的思路、代码写在第 4 周的学习总结中。
 
-2、[22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) ，使用BFS完成。
+二分查找的应用场景：有序的数组、数据量不太大、数据量不太小、处理静态数据（也就是没有频繁地插入或删除操作）
+
+二分查找思想容易理解，但是要写好，是比较难的，要多练习。
+
+
+
+### 2、[22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) ，使用BFS完成
+
+
 
 
 
@@ -336,10 +339,11 @@ class Solution {
 
 ```java
 public int binarySearch(int[] array, int target) {
-    int left = 0, right = array.length - 1, mid;
+    int left = 0;
+    int right = array.length - 1;
     while (left <= right) {
         // 计算中间值
-        mid = (right - left) / 2 + left;
+        int mid = (right - left) / 2 + left;
         if (array[mid] == target) {
             return mid;
         } else if (array[mid] > target) {
@@ -358,9 +362,11 @@ public int binarySearch(int[] array, int target) {
 
 - 有序性（单调递增或递减）
 - 存在上下界
-- 可以通过索引访问
+- 数组（可以通过索引访问）
 
 二分查找看这篇文章：https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/
+
+
 
 
 ### 4、【笔记】贪心的实现、特性及实战题目解析
