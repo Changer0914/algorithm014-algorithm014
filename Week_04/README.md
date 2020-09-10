@@ -219,7 +219,24 @@ public int ladderLength(String beginWord, String endWord, List<String> wordList)
 
 二分查找思想容易理解，但是要写好，是比较难的，要多练习。
 
+这道题同 [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)  一样。
 
+```java
+// 寻找中间无序的位置即寻找最小值所在位置
+public int findMinIndex(int[] nums) {
+    int low = 0, high = nums.length - 1, mid;
+    while (low < high) {
+        mid = low + ((high - low) >> 2);
+        if (nums[mid] <= nums[high]) {
+            high = mid;
+        } else {
+            low = mid + 1;
+        }
+    }
+    // 返回 low 和 high 都可以
+    return high;
+}
+```
 
 ### 2、[22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) ，使用BFS完成
 
@@ -366,10 +383,108 @@ public int binarySearch(int[] array, int target) {
 
 二分查找看这篇文章：https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/
 
+### 4、二分查找的几个变形
+
+```java
+// 二分查找：有序数组、无重复
+// 找到与目标值相同的元素下标
+// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]      target = 8
+public int getIndex(int[] arr, int target) {
+    int low = 0;
+    int high = arr.length - 1;
+    while (low <= high) {
+        int middle = low + ((high - low) >> 1);
+        if (arr[middle] < target) {
+            low = middle + 1;
+        } else if (arr[middle] > target) {
+            high = middle - 1;
+        } else {
+            return middle;
+        }
+    }
+    return -1;
+}
+
+// 变形一：二分查找   有序数组、但有重复
+// 找到与目标值相同的 第一个元素的下标
+// [0, 1, 2, 3, 4, 5, 8, 8, 8, 9]      target = 8
+public int getIndex2(int[] arr, int target) {
+    int low = 0;
+    int high = arr.length - 1;
+    while (low <= high) {
+        int middle = low + ((high - low) >> 1);
+        if (arr[middle] < target) {
+            low = middle + 1;
+        } else if (arr[middle] > target) {
+            high = middle - 1;
+        } else {
+            // 找到相同的了，但这不是第一个相同的，如何确定它就是第一个相同的？
+            if (middle == 0 || arr[middle - 1] != target) return middle;
+            high = middle - 1;
+        }
+    }
+    return -1;
+}
+
+// 变形二：二分查找   有序数组、但有重复
+// 找到与目标值相同的 最后一个元素的下标
+public int getIndex3(int[] arr, int target) {
+    int low = 0;
+    int high = arr.length - 1;
+    while (low <= high) {
+        int middle = low + ((high - low) >> 1);
+        if (arr[middle] < target) {
+            low = middle + 1;
+        } else if (arr[middle] > target) {
+            high = middle - 1;
+        } else {
+            // 找到相同的了，但这不是第一个相同的，如何确定它就是第一个相同的？
+            if (middle == arr.length - 1 || arr[middle + 1] != target) return middle;
+            low = middle + 1;
+        }
+    }
+    return -1;
+}
+
+// 变体三：查找第一个大于等于给定值的元素
+// [3，4，6，7，10]    5   答案是6
+public int getIndex4(int[] arr, int target) {
+    int low = 0;
+    int high = arr.length - 1;
+    while (low <= high) {
+        int middle = low + ((high - low) >> 1);
+        if (arr[middle] >= target) {
+            // 如何确定是第一个？ 是第一个元素 或者 前一个元素 小于 target
+            if (middle == 0 || arr[middle - 1] < target) return middle;
+            high = middle - 1;
+        } else {
+            low = middle + 1;
+        }
+    }
+    return -1;
+}
+
+// 变形四：查找最后一个小于等于给定值的元素
+// [3，5，6，8，9，10]    7     答案是 6
+public int getIndex5(int[] arr, int target) {
+    int low = 0;
+    int high = arr.length - 1;
+    while (low <= high) {
+        int middle = low + ((high - low) >> 1);
+        if (arr[middle] <= target) {
+            // 如何确定是最后一个
+            if (middle == arr.length - 1 || arr[middle + 1] > target) return middle;
+            low = middle + 1;
+        } else {
+            high = middle - 1;
+        }
+    }
+    return -1;
+}
+```
 
 
-
-### 4、【笔记】贪心的实现、特性及实战题目解析
+### 5、【笔记】贪心的实现、特性及实战题目解析
 
 贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，**不能回退**。
 
@@ -379,7 +494,7 @@ public int binarySearch(int[] array, int target) {
 
 从前往后贪、从后往前贪、需要转化下才能贪、从局部开始贪。
 
-### 5、总结
+### 6、总结
 
 本周懈怠了，未按照五毒神掌进行刷题。
 
