@@ -185,8 +185,12 @@ public class Solution504 {
             for (int i = 0; i < size; i++) {
                 BinaryTreeNode treeNode = queue.removeLast();
                 list.add(treeNode.val);
-                queue.addFirst(treeNode.left);
-                queue.addFirst(treeNode.right);
+                if (treeNode.left != null) {
+                    queue.addFirst(treeNode.left);
+                }
+                if (treeNode.right != null) {
+                    queue.addFirst(treeNode.right);
+                }
             }
 
             res.add(list);
