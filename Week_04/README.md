@@ -70,21 +70,32 @@ class Solution {
 [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)
 
 ```java
+// 解法1：
 public boolean canJump(int[] nums) {
-    if (nums == null || nums.length == 0) {
-        return false;
-    }
     // pos表示需要到达的位置
     int pos = nums.length - 1;
     // 从倒数第二个位置开始
     for (int i = nums.length - 2; i >= 0; i--) {
-        // i + nums[i] 表示 能够到达的最远距离
+        // i + nums[i] 表示 能够到达的最远下标
         if (i + nums[i] >= pos) {
             // 逐步向前移动
             pos = i;
         }
     }
     return pos == 0;
+}
+
+// 思路：尽可能到达最远位置（贪心）。 如果能到达某个位置，那一定能到达它前面的所有位置。遍历它前面所有位置，更新 最远下标。
+// 复杂度：时间复杂度 O(n)，空间复杂度 O(1)。
+public boolean canJump(int[] nums) {
+    // 最远的下标
+    int maxPos = 0;
+    for (int i = 0; i <= maxPos; i++) {
+        // 不断更新 最远的下标
+        maxPos = Math.max(maxPos, i + nums[i]);
+        if (maxPos >= nums.length - 1) return true;
+    }
+    return false;
 }
 ```
 
